@@ -7,8 +7,7 @@ class BookModel {
 
     try {
       const query = 'SELECT * FROM books'
-      const books = await this.querySQL(connection, query)
-      return books
+      return await this.querySQL(connection, query)
     } finally {
       connection.end()
     }
@@ -30,7 +29,7 @@ class BookModel {
         newBook.price,
       ]
 
-      connection.query(sql, values, (error, results, fields) => {
+      connection.query(sql, values, (error, results) => {
         if (error) {
           reject(error)
         } else {
@@ -126,8 +125,7 @@ class BookModel {
 
       const values = [minPrice, maxPrice]
 
-      const books = await this.querySQL(connection, query, values)
-      return books
+      return await this.querySQL(connection, query, values)
     } finally {
       connection.end()
     }
