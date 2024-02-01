@@ -21,8 +21,8 @@ const router = express.Router()
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
-const telegramBotToken = '6333128551:AAECzZo_W9GAYGOcJJLyc4cWNmyrcHE85T4'
-const chatId = '-4140206676'
+const telegramBotToken = 'TOKEN'
+const chatId = 'CHAT ID'
 
 router.get('/books', async (req, res) => {
   try {
